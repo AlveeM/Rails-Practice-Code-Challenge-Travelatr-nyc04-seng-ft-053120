@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content[2...-2] %></p>
+
+<h3>Author: <%= link_to @post.blogger.name, @post.blogger %></h3>
+<h3>Destination <%= link_to @post.destination.name, @post.destination %></h3>
+<h3>Likes: <%= @post.likes %></h3>
+
+<%= form_for @post, method: :update, url: { action: 'like' } do |f| %>
+    <%= f.submit "Like Post" %>
+<% end %>
+
+<br>
+<%= link_to "All Posts", posts_path %>
